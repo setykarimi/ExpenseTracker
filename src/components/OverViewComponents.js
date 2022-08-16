@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TransactionForm from "./TransactionForm";
 
-const OverViewComponent = ({ income, expense }) => {
+const OverViewComponent = ({ income, expense, addTransaction }) => {
     const [isShow, setIsShow] = useState(false)
 
     return (
@@ -11,7 +11,7 @@ const OverViewComponent = ({ income, expense }) => {
                 <button onClick={() => setIsShow((prevState) => !prevState)}>
                     {isShow ? "Cancel" : "Add"}</button>
             </div>
-            {isShow && <TransactionForm />}
+            {isShow && <TransactionForm addTransaction={addTransaction}/>}
             <div>
                 <div>Expense: {expense}</div>
                 <div>Income: {income}</div>
