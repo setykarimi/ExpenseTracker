@@ -1,6 +1,11 @@
 const TransactionComponent = ({transactions}) => {
     return ( <section>
-        TransactionComponent
+        {transactions.map((t) =>
+         <div key={t.idb}>
+            <p>{t.desc}</p>
+            <p>{t.amount}</p>
+            <p>{t.type}</p>
+        </div>)}
     </section> );
 }
  
