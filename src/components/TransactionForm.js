@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TransactionForm = ({ addTransaction,setIsShow }) => {
+const TransactionForm = ({ addTransaction, setIsShow }) => {
     const [formValues, setFormValues] = useState({
         type: "income",
         desc: "",
@@ -18,31 +18,52 @@ const TransactionForm = ({ addTransaction,setIsShow }) => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
-            <input type="text" name="desc" value={formValues.desc} onChange={Changehandler} />
-            <input type="number" name="amount" value={formValues.amount} onChange={Changehandler} />
-
-            <div>
+        <form onSubmit={submitHandler} className="transaction-form">
+            <div className="transaction-form__inputs">
                 <input
-                    type="radio"
-                    value="expense"
-                    name="type"
+                    type="text"
+                    name="desc"
+                    value={formValues.desc}
                     onChange={Changehandler}
-                    checked={formValues.type === 'expense'}
-                    id="expense"
-                    />
-                <label>expense</label>
+                    placeholder="Type Description here ..."
+                />
                 <input
-                    type="radio"
-                    value="income"
-                    name="type"
+                    type="number"
+                    name="amount"
+                    value={formValues.amount}
                     onChange={Changehandler}
-                    checked={formValues.type === 'income'}
-                    id="income"
-                    />
-                <label>income</label>
+                    placeholder="Expense/Income $ ..."
+                />
             </div>
-            <button type="submit">Add Transaction</button>
+
+            <div className="transaction-form__radio">
+
+                <div className="transaction-form__radio-expense">
+                    <input
+                        type="radio"
+                        value="expense"
+                        name="type"
+                        onChange={Changehandler}
+                        checked={formValues.type === 'expense'}
+                        id="expense"
+                    />
+                    <label>expense</label>
+                    <span>{formValues.type === 'expense'}</span>
+                </div>
+                <div className="transaction-form__radio-income">
+                    <input
+                        type="radio"
+                        value="income"
+                        name="type"
+                        onChange={Changehandler}
+                        checked={formValues.type === 'income'}
+                        id="income"
+                    />
+                    <label>income</label>
+                    <span></span>
+                </div>
+            </div>
+            <button type="submit" className="transaction-form__button">Add Transaction</button>
         </form>);
 }
 
