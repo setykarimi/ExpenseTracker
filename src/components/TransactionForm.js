@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TransactionForm = ({ addTransaction }) => {
+const TransactionForm = ({ addTransaction,setIsShow }) => {
     const [formValues, setFormValues] = useState({
         type: "income",
         desc: "",
@@ -14,6 +14,7 @@ const TransactionForm = ({ addTransaction }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         addTransaction(formValues)
+        setIsShow(false)
     }
 
     return (
@@ -28,6 +29,7 @@ const TransactionForm = ({ addTransaction }) => {
                     name="type"
                     onChange={Changehandler}
                     checked={formValues.type === 'expense'}
+                    id="expense"
                     />
                 <label>expense</label>
                 <input
@@ -36,6 +38,7 @@ const TransactionForm = ({ addTransaction }) => {
                     name="type"
                     onChange={Changehandler}
                     checked={formValues.type === 'income'}
+                    id="income"
                     />
                 <label>income</label>
             </div>
