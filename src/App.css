@@ -1,38 +1,208 @@
-.App {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+}
+
+.header p {
+  margin: 0;
+}
+
+.header button {
+  border: none;
+  padding: 0.5em 1.2em;
+  border-radius: 0.3em;
+  background: transparent;
+  font-weight: 700;
+  font-family: "Quicksand";
+  transition: 0.3s ease;
+  outline: none;
+  display: flex;
+}
+
+.header button.add {
+  color: #059669;
+  border: 2px solid #059669;
+}
+
+.header button.add:hover,
+.header button.add:focus {
+  outline: 3px solid #10b98149;
+}
+
+.header button.cancel {
+  color: #e11d48;
+  border: 2px solid #e11d48;
+}
+
+.header button.cancel:hover,
+.header button.cancel:focus {
+  outline: 3px solid #fb71864f;
+}
+
+.my-transactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+.my-transactions div {
+  width: max-content;
+  padding: 1em 1.5em;
+  border-radius: 0.3em;
+  background: #f4f4f5;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.transaction-height {
+  height: 200px;
+  overflow-y: auto;
+  padding-right: 0.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* width */
+.transaction-height::-webkit-scrollbar {
+  width: 7px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Track */
+.transaction-height::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1em;
+}
+
+/* Handle */
+.transaction-height::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1em;
+}
+
+/* Handle on hover */
+.transaction-height::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+.transaction-list .transaction-list__item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  margin: 0.7em 0;
+  background: #fafafa;
+  padding: 0.7em 1em;
+  border-radius: 0.3em;
+  transition: 0.3s ease-in-out;
+}
+
+.transaction-list .transaction-list__item .icon {
+  transition: 0.3s ease-in-out;
+  margin-right: .5em;
+}
+
+.transaction-list .transaction-list__item .delete-button{
+  border: none;
+  background: transparent;
+  transition: .3s ease;
+  width: 2em;
+  height: 2em;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.transaction-list .transaction-list__item .transaction-list__item-details{
+  display: flex;
 }
 
-@keyframes App-logo-spin {
+.transaction-list .filterd-row{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+
+.transaction-list .transaction-list__item.expense-transaction:hover {
+  background: #e11d48;
+  color: #fff;
+}
+
+.transaction-list .transaction-list__item:hover .delete-button{
+  background: #fff;
+  border-radius: .2em;
+}
+
+.transaction-list .transaction-list__item.expense-transaction:hover .icon {
+  color: #fff;
+}
+
+.transaction-list .transaction-list__item.income-transaction:hover {
+  background: #059669;
+  color: #fff;
+}
+
+.transaction-list .transaction-list__item.income-transaction:hover .icon {
+  color: #fff;
+}
+
+.transaction-list .transaction-list__item .amount {
+  margin: 0 1em;
+}
+
+.transaction-form {
+  margin: 1em 0 2em 0;
+  animation-duration: 0.5s;
+  animation-name: slidein;
+}
+
+.transaction-form__inputs {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: .3em;
+  justify-content: space-between
+}
+
+.transaction-form__radio {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.transaction-form__button {
+  border: 2px solid #0891b2;
+  padding: 0.5em 1.2em;
+  border-radius: 0.3em;
+  background: transparent;
+  font-weight: 700;
+  font-family: "Quicksand";
+  transition: 0.3s ease;
+  outline: none;
+  color: #0891b2;
+  margin-top: 0.5em;
+  transition: 0.3s ease;
+}
+
+.transaction-form__button:hover,
+.transaction-form__button:focus {
+  outline: 3px solid #06b5d467;
+}
+
+@keyframes slidein {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0);
   }
+
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 100%;
   }
 }
