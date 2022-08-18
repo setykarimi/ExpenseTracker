@@ -11,7 +11,10 @@ const OverViewComponent = ({ income, expense, addTransaction }) => {
                 <button onClick={() => setIsShow((prevState) => !prevState)}>
                     {isShow ? "Cancel" : "Add"}</button>
             </div>
-            {isShow && <TransactionForm addTransaction={addTransaction}/>}
+            {isShow && <TransactionForm
+             addTransaction={addTransaction}
+                setIsShow={setIsShow}
+             />}
             <div>
                 <div>Expense: {expense}</div>
                 <div>Income: {income}</div>
