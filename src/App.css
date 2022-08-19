@@ -206,3 +206,16 @@
     opacity: 100%;
   }
 }
+
+
+
+@media(max-width:576px){
+  .transaction-form__inputs{
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .my-transactions div{
+    padding: .5em 1em;
+  }
+}
