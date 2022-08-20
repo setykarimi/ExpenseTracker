@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const TransactionForm = ({ addTransaction, setIsShow }) => {
     const [formValues, setFormValues] = useState({
@@ -13,6 +15,11 @@ const TransactionForm = ({ addTransaction, setIsShow }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
+        if(formValues.desc ===  "" || formValues.amount === ""){
+            toast.warn("Please fill all the blanks");
+            return
+        }
+        
         addTransaction(formValues)
         setIsShow(false)
     }
@@ -64,6 +71,7 @@ const TransactionForm = ({ addTransaction, setIsShow }) => {
                 </div>
             </div>
             <button type="submit" className="transaction-form__button">Add Transaction</button>
+            <ToastContainer />
         </form>);
 }
 
