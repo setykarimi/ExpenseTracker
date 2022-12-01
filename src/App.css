@@ -1,3 +1,9 @@
+.page-title{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
